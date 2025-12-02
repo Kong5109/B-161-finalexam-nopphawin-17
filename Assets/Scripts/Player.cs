@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        //Use PowerUp when Touch
         PowerUpBase currentPower = collision.GetComponent<PowerUpBase>();
         currentPower?.ApplyEffect(this);
     }
