@@ -7,6 +7,7 @@ public class ShieldBuff : PowerUpBase
         if (IsEffectActive == false)
         {
             player.SetInvulnerability(true);
+            Destroy(this.gameObject);
         }
     }
 }
