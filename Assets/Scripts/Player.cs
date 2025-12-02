@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float jumpForce = 10f;
-
-    private Rigidbody2D rb;
+    [field: SerializeField] public float MoveSpeed { get; private set; } = 5f;
+    [field: SerializeField] private float jumpForce { get; set; } = 10f;
+    [field: SerializeField] public bool IsInvulnerable { get; private set; } = false;
+    [field: SerializeField] public Rigidbody2D rb { get; set; }
 
     private void Start()
     {
@@ -18,10 +18,26 @@ public class Player : MonoBehaviour
         Jump();
     }
 
+    public void SetMoveSpeed(float newSpeed)
+    {
+        MoveSpeed = newSpeed;
+    }
+
+    public void SetInvulnerability(bool isEnable)
+    {
+        IsInvulnerable = isEnable;
+        Debug.Log("The Invulnerability is " + isEnable);
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+    }
+
     public void Move()
     {
         float moveInput = Input.GetAxisRaw("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveInput * MoveSpeed, rb.linearVelocity.y);
     }
 
     public void Jump()
