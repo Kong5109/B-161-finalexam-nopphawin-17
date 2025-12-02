@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class SpeedBoost : MonoBehaviour
+public class SpeedBoost : PowerUpBase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void ApplyEffect(Player player)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        player.SetMoveSpeed(player.MoveSpeed * 2);
     }
 }
