@@ -31,7 +31,8 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        PowerUpBase currentPower = collision.GetComponent<PowerUpBase>();
+        currentPower?.ApplyEffect(this);
     }
 
     public void Move()
